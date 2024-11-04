@@ -24,12 +24,12 @@
 
 // export default App;
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// import { Container, Nav, Navbar } from 'react-bootstrap';
 import Home from './components/Home';
-import { Contact } from './components/Contact';
-import { ContactList } from './components/ContactList';
-import { NavBar } from './components/NavBar';
+// import { Contact } from './components/Contact';
+// import { ContactList } from './components/ContactList';
+// import { NavBar } from './components/NavBar';
 const App = () => {
   return (
       <Home/>
