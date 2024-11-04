@@ -119,10 +119,10 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:3000" })); // Remplacez par l'URL de votre frontend déployé
 app.use(express.json());
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log("Server running on port 3000"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
@@ -159,14 +159,7 @@ app.post("/contact", (req, res) => {
       console.error('Error sending email:', error);
       res.status(500).json({ code: 500, message: 'Internal Server Error' });
     } else {
-      res.status(200).json({
-      code: 200,
-      message: 'Message sent successfully',
-      Name: name,
-      Email: email,
-      Phone: phone,
-      Message: message
-    });
+      res.status(200).json({ code: 200, message: 'Message sent successfully'});
     }
   });
 });
